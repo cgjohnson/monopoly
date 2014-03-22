@@ -10,11 +10,11 @@ class Square
     @name = name
   end
 
-  #accessor methods
   def self.gameboard
     @@gameboard
   end
 
+  #accessor methods
   def id
     puts @id
   end
@@ -23,6 +23,7 @@ class Square
   end
 end
 
+#Square subclasses
 class GoSquare < Square
   def payup
     puts "player landed on go. player gets 200"

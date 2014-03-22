@@ -53,4 +53,3 @@ class Player
     puts "#{@name} is in jail"
   end
 end
-

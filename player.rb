@@ -24,21 +24,23 @@ class Player
 
   #action methods
   def roll
-    puts "#{@name} rolls dice..."
-    dice_1 = rand(1..6)
-    dice_2 = rand(1..6)
-    total = (dice_1 + dice_2)
-    sleep(1)
-    puts "#{@name} rolls " + total.to_s
-    new_position = @position + total
-    puts "#{@name}'s new position: #{Square.gameboard[new_position]}"
-    @position = new_position
+    while true
+      puts "#{@name} rolls dice..."
+      dice_1 = rand(1..6)
+      dice_2 = rand(1..6)
+      total = (dice_1 + dice_2)
+      sleep(1)
+      puts "#{@name} rolls " + total.to_s
+      new_position = @position + total
+      puts "#{@name}'s new position: #{Square.gameboard[new_position]}"
+      @position = new_position
+    end
   end
   def buy
     puts "#{@name} buys property"
   end
   def mortgage
-    puts "#{@name} mortgages proptery"
+    puts "#{@name} mortgages property"
   end
   def bankrupt
     puts "#{@name} declares bankruptcy"

@@ -48,3 +48,7 @@ chance_3 =  Chance.new(35, "chance")
 park_place = Blue.new(36, "park place", 350, 40)
 luxury_tax =  Tax.new(37, "luxury")
 boardwalk = Blue.new(38, "boardwalk", 400, 50)
+
+#play
+
+chuck.roll

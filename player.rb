@@ -24,9 +24,9 @@ class Player
     total = (dice_1 + dice_2).to_s
     sleep(1)
     puts "#{@name} rolls " + total
-    temp = @position
-    @position = temp + total
-    puts "#{@name}'s new position: #{Square.gameboard[@position]}"
+    new_position = @position + total.to_i
+    puts "#{@name}'s new position: #{Square.gameboard[new_position]}"
+    @position = new_position
   end
   def buy
     puts "#{@name} buys property"

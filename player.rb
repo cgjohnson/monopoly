@@ -1,4 +1,6 @@
 class Player
+
+  #constructor method
   def initialize(id, name)
     @id = id
     @name = name
@@ -21,8 +23,10 @@ class Player
     dice_2 = rand(1..6)
     total = (dice_1 + dice_2).to_s
     sleep(1)
-
     puts "#{@name} rolls " + total
+    temp = @position
+    @position = temp + total
+    puts "#{@name}'s new position: #{Square.gameboard[@position]}"
   end
   def buy
     puts "#{@name} buys property"

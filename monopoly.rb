@@ -7,5 +7,8 @@ chuck = Player.new(1, "chuck")
 go = GoSquare.new(0, "go")
 baltic = Purple.new(1, "baltic", 100, "bank")
 
-chuck.locate
+baltic.id
+baltic.name
 baltic.color
+baltic.rent
+baltic.owner

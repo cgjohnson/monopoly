@@ -45,6 +45,9 @@ class Jail < Square
   def incarceration
     puts "player is in jail"
   end
+  def visitation
+    puts "player is just visiting"
+  end
 end
 
 class FreeParking < Square
@@ -63,12 +66,13 @@ end
 class Property < Square
 
   #constructor method
-  def initialize(id, name, rent, owner)
+  def initialize(id, name, price, rent)
     @@gameboard << name
     @id = id
     @name = name
+    @price = price
     @rent = rent
-    @owner = owner
+    @owner = "bank"
     @color = "default"
   end
 
@@ -88,5 +92,66 @@ class Purple < Property
   def color
     @color = "purple"
     puts @color
+  end
+end
+class LightBlue < Property
+  def color
+    @color = "lightblue"
+    puts @color
+  end
+end
+
+class Pink < Property
+  def color
+    @color = "pink"
+    puts @color
+  end
+end
+
+class Orange < Property
+  def color
+    @color = "orange"
+    puts @color
+  end
+end
+
+class Red < Property
+  def color
+    @color = "red"
+    puts @color
+  end
+end
+
+class Yellow < Property
+  def color
+    @color = "yellow"
+    puts @color
+  end
+end
+
+class Green < Property
+  def color
+    @color = "green"
+    puts @color
+  end
+end
+
+class Blue < Property
+  def color
+    @color = "blue"
+    puts @color
+  end
+end
+
+class Railroad < Property
+  def color
+    @color = "railroad"
+    puts @color
+  end
+end
+
+class Utility < Property
+  def color
+    @color = "utility"
   end
 end

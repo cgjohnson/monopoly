@@ -20,11 +20,7 @@ class Test
     puts "User, your name is #{player1.name}!"
     puts "User, your location is #{player1.location}!"
 
-    gamemaster.inquire("#{player1.name}, please press enter to roll the dice.")
-
-    player1.rollthedice
-    player1.move
-    puts "your position is now #{player1.position_s}"
+    gamemaster.moveplayer(player1)
   end
 end
 

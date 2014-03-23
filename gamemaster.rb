@@ -13,6 +13,12 @@ class GameMaster
     puts question
     answer = gets.chomp
   end
+  def moveplayer(player)
+    puts "#{player.name}, please press enter to roll the dice."
+    gets
+    player.rollthedice
+    player.move
+  end
 end
 
 class ResponseMaster

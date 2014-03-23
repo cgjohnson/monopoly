@@ -31,7 +31,6 @@ class Player
   end
 
   #string accessor methods
-    @roll_s = 8
   def id_s
     @id.to_s
   end

@@ -9,6 +9,7 @@ class Player
     @id = id
     @name = name
     @position = 0
+    @location = Square.gameboard[@position]
     @cash = 2500
   end
 
@@ -22,25 +23,45 @@ class Player
   def position
     @position
   end
+  def location
+    @location
+  end
    def cash
     @cash
   end
 
+  #string accessor methods
+  def id_s
+    @id.to_s
+  end
+  def position_s
+    @position.to_s
+  end
+   def cash_s
+    @cash.to_s
+  end
+
   #action methods
-  def rolldice
+  def rollthedice
     dice = Dice.new
-    puts "#{@name} rolls dice..."
+    puts "#{@name} is rolling the dice..."
     sleep(1)
-    dice.roll
-    puts "#{@name} rolls " + dice.to_s
-   end
+    @roll = dice.roll
+    @roll_s = @roll.to_s
+    if @roll == 8 || @roll == 11
+      puts "#{@name} rolled an #{@roll_s}"
+    else
+      puts "#{@name} rolled a #{@roll_s}"
+    end
+  end
+  def move
+    @position +=@roll
+    @location = Square.gameboard[@position]
+    puts "#{@name} landed on #{@location}"
+  end
 end
 
 =begin
- def position_name
-    puts Square.gameboard[@position]
-  end
-
   def buy
     puts "#{@name} buys property"
   end

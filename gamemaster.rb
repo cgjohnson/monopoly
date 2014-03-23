@@ -13,6 +13,12 @@ class GameMaster
     puts question
     answer = gets.chomp
   end
+  def moveplayer(player)
+    puts "#{player.name}, please press enter to roll the dice."
+    gets
+    player.rollthedice
+    player.move
+  end
 end
 
 class ResponseMaster
@@ -20,11 +26,11 @@ class ResponseMaster
     localtruth = true
 
     while localtruth
-      if response == "yes"
+      if response.upcase() == "YES" || response.upcase() == "Y"
         gamemaster.speak("Wonderful!")
         localtruth = false
-      elsif response == "no"
-        gamemaster.speak("How dissapointing...")
+      elsif response.upcase() == "NO" || response.upcase() == "N"
+        gamemaster.speak("No? How dissapointing...")
         exit
       else
         gamemaster.speak("I'm afraid I don't understand...")

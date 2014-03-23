@@ -1,14 +1,7 @@
-require_relative 'dice'
-require_relative 'square'
-require_relative 'typeofsquare'
-require_relative 'property'
-require_relative 'player'
-require_relative 'initialize'
-require_relative 'gamemaster'
+require_relative 'monopoly'
 
-
-class Monopoly
-  def play
+class Test
+  def test
     InitializeSquares.new
     gamemaster = GameMaster.new
     responsemaster = ResponseMaster.new
@@ -21,10 +14,16 @@ class Monopoly
     name = gamemaster.inquire("User, what is your name?")
     player1 = Player.new(0, name)
 
-    gamemaster.speak("Greetings, #{player1.name}!")
+    puts "User, your id is #{player1.id_s}!"
+    puts "User, your position is #{player1.position_s}!"
+    puts "User, your cash is #{player1.cash_s}!"
+    puts "User, your name is #{player1.name}!"
+    puts "User, your location is #{player1.location}!"
+
+    gamemaster.moveplayer(player1)
   end
 end
 
-#game = Monopoly.new
-#
-#game.play
+game = Test.new
+
+game.test

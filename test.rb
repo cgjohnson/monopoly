@@ -20,7 +20,11 @@ class Test
     puts "User, your name is #{player1.name}!"
     puts "User, your location is #{player1.location}!"
 
-    gamemaster.moveplayer(player1)
+    localtruth = true
+    while localtruth
+      gamemaster.moveplayer(player1)
+      puts "User, your position is #{player1.position_s}!"
+    end
   end
 end
 

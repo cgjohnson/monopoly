@@ -56,6 +56,9 @@ class Player
   end
   def move
     @position +=@roll
+    if @position > 39
+      @position = @position - 40
+    end
     @location = Square.gameboard[@position]
     puts "#{@name} landed on #{@location}"
   end

@@ -1,3 +1,7 @@
+require_relative 'square'
+require_relative 'typeofsquare'
+require_relative 'property'
+
 class Player
 
   #constructor method
@@ -10,30 +14,33 @@ class Player
 
   #accessor methods
   def id
-    puts @id
+    @id
   end
   def name
-    puts @name
+    @name
   end
   def position
-    puts Square.gameboard[@position]
+    @position
   end
-  def cash
-    puts @cash
+   def cash
+    @cash
   end
 
   #action methods
-  def roll
+  def rolldice
+    dice = Dice.new
     puts "#{@name} rolls dice..."
-    dice_1 = rand(1..6)
-    dice_2 = rand(1..6)
-    total = (dice_1 + dice_2)
     sleep(1)
-    puts "#{@name} rolls " + total.to_s
-    new_position = @position + total
-    puts "#{@name}'s new position: #{Square.gameboard[new_position]}"
-    @position = new_position
+    dice.roll
+    puts "#{@name} rolls " + dice.to_s
+   end
+end
+
+=begin
+ def position_name
+    puts Square.gameboard[@position]
   end
+
   def buy
     puts "#{@name} buys property"
   end
@@ -53,3 +60,8 @@ class Player
     puts "#{@name} is in jail"
   end
 end
+
+   new_position = @position + total
+    puts "#{@name}'s new position: #{Square.gameboard[new_position]}"
+    @position = new_position
+=end

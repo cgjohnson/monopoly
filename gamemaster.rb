@@ -20,7 +20,7 @@ class ResponseMaster
     localtruth = true
 
     while localtruth
-      if response == "yes" || "y"
+      if response.upcase == "YES" || response.upcase() == "Y"
         gamemaster.speak("Wonderful!")
         localtruth = false
       elsif response == "no"

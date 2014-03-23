@@ -1,61 +1,32 @@
 #Monopoly
 
+require_relative 'dice'
 require_relative 'square'
+require_relative 'typeofsquare'
 require_relative 'property'
 require_relative 'player'
+require_relative 'initialize'
+require_relative 'gamemaster'
+
 
 class Monopoly
-  #masterclass
-end
+  def play
+    InitializeSquares.new
+    gamemaster = GameMaster.new
+    responsemaster = ResponseMaster.new
 
-class GameMaster < Monopoly
-  #constructor method
-  def initialize
-  end
+    gamemaster.speak("Greetings, User.")
 
-  #accessor methods
+    playtime =gamemaster.inquire("Would you like to play a game?\nyes or no")
+    responsemaster.yesno(playtime, gamemaster)
 
-  #action methods
-  def speak(words)
-    puts words
-  end
-  def inquire(question)
-    puts question
-    answer = gets.chomp
+    name = gamemaster.inquire("User, what is your name?")
+    player1 = Player.new(0, name)
+
+    puts "user, your name is #{player1.name}"
   end
 end
 
-class ResponseMaster < Monopoly
-  def yesno(response, gamemaster)
-    localtruth = true
+game = Monopoly.new
 
-    while localtruth
-      if response == "yes"
-        gamemaster.speak("Wonderful!")
-        localtruth = false
-      elsif response == "no"
-        gamemaster.speak("How dissapointing...")
-        exit
-      else
-        gamemaster.speak("I'm afraid I don't understand...")
-        response = gamemaster.inquire("Please answer yes or no")
-      end
-    end
-  end
-end
-
-
-#initialize game
-
-gamemaster = GameMaster.new
-responsemaster = ResponseMaster.new
-
-gamemaster.speak("Greetings, User.")
-
-playtime =gamemaster.inquire("Would you like to play a game?\nyes or no")
-responsemaster.yesno(playtime, gamemaster)
-
-name = gamemaster.inquire("User, what is your name?")
-player1 = Player.new(0, name)
-
-
+game.play

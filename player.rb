@@ -1,4 +1,7 @@
-require_relative 'dice'
+require_relative 'square'
+require_relative 'typeofsquare'
+require_relative 'property'
+
 class Player
 
   #constructor method

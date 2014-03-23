@@ -1,3 +1,4 @@
+require_relative 'square'
 
 #Square subclasses
 class GoSquare < Square

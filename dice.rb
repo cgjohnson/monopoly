@@ -6,3 +6,10 @@ class Dice
     puts total
   end
 end
+
+
+#should add to function, to determine number of dice to roll
+#something along the lines of:
+#def roll(num_of_dice)
+#yada yada yada
+#end

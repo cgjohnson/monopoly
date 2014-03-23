@@ -23,7 +23,7 @@ class Monopoly
     name = gamemaster.inquire("User, what is your name?")
     player1 = Player.new(0, name)
 
-    puts "user, your name is #{player1.name}"
+    puts "Greetings, #{player1.name}!"
   end
 end
 

@@ -26,19 +26,19 @@ class GameMaster < Monopoly
 end
 
 class ResponseMaster < Monopoly
-  def yesno(response)
+  def yesno(response, gamemaster)
     localtruth = true
 
     while localtruth
       if response == "yes"
-        $gamemaster.speak("Wonderful!")
+        gamemaster.speak("Wonderful!")
         localtruth = false
       elsif response == "no"
-        $gamemaster.speak("How dissapointing...")
+        gamemaster.speak("How dissapointing...")
         exit
       else
-        $gamemaster.speak("I'm afraid I don't understand...")
-        response = $gamemaster.inquire("Please answer yes or no")
+        gamemaster.speak("I'm afraid I don't understand...")
+        response = gamemaster.inquire("Please answer yes or no")
       end
     end
   end
@@ -47,15 +47,15 @@ end
 
 #initialize game
 
-$gamemaster = GameMaster.new
+gamemaster = GameMaster.new
 responsemaster = ResponseMaster.new
 
-$gamemaster.speak("Greetings, User.")
+gamemaster.speak("Greetings, User.")
 
-playtime = $gamemaster.inquire("Would you like to play a game?\nyes or no")
-responsemaster.yesno(playtime)
+playtime =gamemaster.inquire("Would you like to play a game?\nyes or no")
+responsemaster.yesno(playtime, gamemaster)
 
-username = $gamemaster.inquire("User, what is your name?")
-player1 = Player.new(0, username)
+name = gamemaster.inquire("User, what is your name?")
+player1 = Player.new(0, name)
 
-puts "your name is #{player1.name}"
+

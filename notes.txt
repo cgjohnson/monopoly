@@ -1,0 +1,1 @@
+creating the game with single player, adding all necessary functions

@@ -2,70 +2,32 @@ require_relative 'square'
 require_relative 'typeofsquare'
 
 class Purple < Property
-  def color
-    @color = "purple"
-    puts @color
-  end
+  @color = "purple"
 end
 class LightBlue < Property
-  def color
-    @color = "lightblue"
-    puts @color
-  end
+    @color = "purple"
 end
-
 class Pink < Property
-  def color
-    @color = "pink"
-    puts @color
-  end
+  @color = "purple"
 end
-
 class Orange < Property
-  def color
-    @color = "orange"
-    puts @color
-  end
+  @color = "purple"
 end
-
 class Red < Property
-  def color
-    @color = "red"
-    puts @color
-  end
+  @color = "purple"
 end
-
 class Yellow < Property
-  def color
-    @color = "yellow"
-    puts @color
-  end
+  @color = "purple"
 end
-
 class Green < Property
-  def color
-    @color = "green"
-    puts @color
-  end
+  @color = "purple"
 end
-
 class Blue < Property
-  def color
-    @color = "blue"
-    puts @color
-  end
+  @color = "purple"
 end
-
 class Railroad < Property
-  def color
-    @color = "railroad"
-    puts @color
-  end
+  @color = "purple"
 end
-
 class Utility < Property
-  def color
-    @color = "utility"
-    puts @color
-  end
+  @color = "purple"
 end

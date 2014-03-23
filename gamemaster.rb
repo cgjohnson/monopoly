@@ -18,6 +18,7 @@ class GameMaster
     gets
     player.rollthedice
     player.move
+    player.choose
   end
 end
 

@@ -62,6 +62,9 @@ class Player
     @location = Square.gameboard[@position]
     puts "#{@name} landed on #{@location}"
   end
+  def choose
+    
+  end
 end
 
 =begin

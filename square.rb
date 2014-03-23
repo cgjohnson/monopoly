@@ -1,17 +1,21 @@
 class Square
 
   #array for all squares
-  @@gameboard =  []
+  @@squarenames =  []
+  @@squareowners = []
 
   #constructor method
   def initialize(id, name)
-    @@gameboard << name
     @id = id
     @name = name
+    @owner = "bank"
+    @color = "default"
+    @@squarenames << @name
+    @@squareowners << @owner
   end
 
   def self.gameboard
-    @@gameboard
+    @@squarenames
   end
 
   #accessor methods

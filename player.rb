@@ -22,6 +22,9 @@ class Player
   def position
     @position
   end
+  def location
+    Square.gameboard[@position]
+  end
    def cash
     @cash
   end
@@ -37,10 +40,6 @@ class Player
 end
 
 =begin
- def position_name
-    puts Square.gameboard[@position]
-  end
-
   def buy
     puts "#{@name} buys property"
   end

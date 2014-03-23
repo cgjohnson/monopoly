@@ -20,10 +20,10 @@ class ResponseMaster
     localtruth = true
 
     while localtruth
-      if response.upcase == "YES" || response.upcase() == "Y"
+      if response.upcase() == "YES" || response.upcase() == "Y"
         gamemaster.speak("Wonderful!")
         localtruth = false
-      elsif response == "no"
+      elsif response.upcase() == "NO" || response.upcase() == "N"
         gamemaster.speak("How dissapointing...")
         exit
       else

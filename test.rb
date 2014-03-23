@@ -23,6 +23,8 @@ class Test
     gamemaster.inquire("#{player1.name}, please press enter to roll the dice.")
 
     player1.rollthedice
+    player1.move
+    puts "your position is now #{player1.position_s}"
   end
 end
 

@@ -31,6 +31,7 @@ class Player
   end
 
   #string accessor methods
+    @roll_s = 8
   def id_s
     @id.to_s
   end
@@ -56,6 +57,7 @@ class Player
   end
   def move
     @position +=@roll
+    @location = Square.gameboard[@position]
     puts "#{@name} landed on #{@location}"
   end
 end

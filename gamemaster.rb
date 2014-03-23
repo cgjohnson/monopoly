@@ -24,7 +24,7 @@ class ResponseMaster
         gamemaster.speak("Wonderful!")
         localtruth = false
       elsif response.upcase() == "NO" || response.upcase() == "N"
-        gamemaster.speak("How dissapointing...")
+        gamemaster.speak("No? How dissapointing...")
         exit
       else
         gamemaster.speak("I'm afraid I don't understand...")

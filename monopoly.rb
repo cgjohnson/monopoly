@@ -15,13 +15,13 @@ class Monopoly
 
     gamemaster.speak("Greetings, User.")
 
-    playtime =gamemaster.inquire("Would you like to play a game?\nyes or no")
+    playtime = gamemaster.inquire("Would you like to play a game?\nyes or no")
     responsemaster.yesno(playtime, gamemaster)
 
     name = gamemaster.inquire("User, what is your name?")
     player1 = Player.new(0, name)
 
-    puts "Greetings, #{player1.name}!"
+    gamemaster.speak("Greetings, #{player1.name}!")
   end
 end
 

@@ -41,15 +41,19 @@ class Player
     @cash.to_s
   end
 
-
   #action methods
-  def rolldice
+  def rollthedice
     dice = Dice.new
-    puts "#{@name} rolls dice..."
+    puts "#{@name} is rolling the dice..."
     sleep(1)
     @roll = dice.roll
-    puts "#{@name} rolls " + dice.to_s
-   end
+    @roll_s = @roll.to_s
+    if @roll == 8 || @roll == 11
+      puts "#{@name} rolled an #{@roll_s}"
+    else
+      puts "#{@name} rolled a #{@roll_s}"
+    end
+  end
   def move
     @position +=@roll
     puts "#{@name} landed on #{@location}"

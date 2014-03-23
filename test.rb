@@ -8,7 +8,7 @@ class Test
 
     gamemaster.speak("Greetings, User.")
 
-    playtime =gamemaster.inquire("Would you like to play a game?\nyes or no")
+    playtime = gamemaster.inquire("Would you like to play a game?\nyes or no")
     responsemaster.yesno(playtime, gamemaster)
 
     name = gamemaster.inquire("User, what is your name?")
@@ -19,6 +19,10 @@ class Test
     puts "User, your cash is #{player1.cash_s}!"
     puts "User, your name is #{player1.name}!"
     puts "User, your location is #{player1.location}!"
+
+    gamemaster.inquire("#{player1.name}, please press enter to roll the dice.")
+
+    player1.rollthedice
   end
 end
 

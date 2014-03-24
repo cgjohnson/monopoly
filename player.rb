@@ -63,10 +63,7 @@ class Player
     @position +=@roll
     if @position > 39
       @position = @position - 40
-      puts "#{@name} passed or landed on Go! Collect $200!"
-      @cash = @cash + 200
-      @cash_s = @cash.to_s
-      puts "#{@name} now has #{@cash_s} in cash."
+      go.gopay(@name, @cash)
     end
     @location = Square.squarenames[@position]
     @owner = Square.squareowners[@position]

@@ -9,7 +9,7 @@ class Test
     gamemaster.speak("Greetings, User.")
 
     playtime = gamemaster.inquire("Would you like to play a game?\nyes or no")
-    responsemaster.yesno(playtime, gamemaster)
+    responsemaster.yesnokill(playtime)
 
     name = gamemaster.inquire("User, what is your name?")
     player1 = Player.new(0, name)
@@ -20,7 +20,10 @@ class Test
     puts "User, your name is #{player1.name}!"
     puts "User, your location is #{player1.location}!"
 
-    gamemaster.moveplayer(player1)
+    localtruth = true
+    while localtruth
+      gamemaster.moveplayer(player1)
+    end
   end
 end
 

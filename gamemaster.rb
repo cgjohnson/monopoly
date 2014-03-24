@@ -18,25 +18,42 @@ class GameMaster
     gets
     player.rollthedice
     player.move
+    player.choose
   end
 end
 
 class ResponseMaster
-  def yesno(response, gamemaster)
+  def yesnokill(response)
     localtruth = true
-
     while localtruth
       if response.upcase() == "YES" || response.upcase() == "Y"
-        gamemaster.speak("Wonderful!")
+        puts "Wonderful!"
         localtruth = false
       elsif response.upcase() == "NO" || response.upcase() == "N"
-        gamemaster.speak("No? How dissapointing...")
+        puts "No? How dissapointing..."
         exit
       else
-        gamemaster.speak("I'm afraid I don't understand...")
-        response = gamemaster.inquire("Please answer yes or no")
+        puts "I'm afraid I don't understand..."
+        puts "Please answer yes or no"
+        response = gets.chomp
       end
     end
   end
+  def yesno(response)
+    localtruth = true
+    while localtruth
+      if response.upcase() == "YES" || response.upcase() == "Y"
+        puts "Wonderful!"
+        localtruth = false
+      elsif response.upcase() == "NO" || response.upcase() == "N"
+        puts "No? How dissapointing..."
+      else
+        puts "I'm afraid I don't understand..."
+        puts "Please answer yes or no"
+        response = gets.chomp
+      end
+    end
+  end
+
 end
 

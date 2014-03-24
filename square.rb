@@ -1,96 +1,41 @@
 class Square
 
-  #array for all squares
-  @@gameboard =  []
+  #arrays for all squares
+  @@squarenames =  []
+  @@squareowners = []
+  @@squarecolors = []
+  @@squareprices = []
 
   #constructor method
-  def initialize(id, name)
-    @@gameboard << name
+  def initialize(id, name, owner)
     @id = id
     @name = name
-  end
-
-  def self.gameboard
-    @@gameboard
+    @owner = owner
+    @color = "default"
+    @price = 0
+    @@squarenames << @name
+    @@squareowners << @owner
+    @@squarecolors << @color
+    @@squareprices << @price
   end
 
   #accessor methods
   def id
-    puts @id
+    @id
   end
   def name
-    puts @name
+    @name
   end
-end
-
-#Square subclasses
-class GoSquare < Square
-  def payup
-    puts "player landed on go. player gets 200"
+  def self.squarenames
+    @@squarenames
   end
-end
-
-class CommunityChest < Square
-  def opensesame
-    puts "player opened community chest"
+  def self.squareowners
+    @@squareowners
   end
-end
-
-class Chance < Square
-  def chance
-    puts "player took a chance"
+  def self.squarecolors
+    @@squarecolors
   end
-end
-
- class Tax < Square
-   def tax
-     puts "player got taxed"
-   end
- end
-
-class Jail < Square
-  def incarceration
-    puts "player is in jail"
-  end
-  def visitation
-    puts "player is just visiting"
-  end
-end
-
-class FreeParking < Square
-  def moneytime
-    puts "player wins the money"
-  end
-end
-
-class GoToJail < Square
-  def arrest
-    puts "player goes to jail. player does not pass go."
-    puts "player does not collect 200. player does not drop the soap."
-  end
-end
-
-class Property < Square
-
-  #constructor method
-  def initialize(id, name, price, rent)
-    @@gameboard << name
-    @id = id
-    @name = name
-    @price = price
-    @rent = rent
-    @owner = "bank"
-    @color = "default"
-  end
-
-  #accessor methods
-  def color
-    puts @color
-  end
-  def rent
-    puts @rent
-  end
-  def owner
-    puts @owner
+  def self.squareprices
+    @@squareprices
   end
 end

@@ -30,9 +30,7 @@ end
 
 class GoSquare < Square
   def gopay
-    puts "player landed on go. player gets 200"
   end
-end
 class CommunityChest < Square
   def opensesame
     puts "player opened community chest"

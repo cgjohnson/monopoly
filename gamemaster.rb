@@ -17,7 +17,7 @@ class GameMaster
     puts "#{player.name}, please press enter to roll the dice."
     gets
     player.rollthedice
-    player.move
+    player.move(player)
     player.choose
   end
 end

@@ -1,7 +1,6 @@
 require_relative 'square'
 require_relative 'typeofsquare'
 require_relative 'property'
-require_relative 'initialize'
 
 class Player
 

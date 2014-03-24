@@ -1,6 +1,7 @@
 require_relative 'square'
 require_relative 'typeofsquare'
 require_relative 'property'
+require_relative 'initialize'
 
 class Player
 
@@ -59,11 +60,14 @@ class Player
       puts "#{@name} rolled a #{@roll_s}"
     end
   end
-  def move
+  def move(player)
     @position +=@roll
     if @position > 39
       @position = @position - 40
-      go.gopay(@name, @cash)
+      puts "#{@name} passed or landed on Go! Collect $200!"
+      @cash = @cash + 200
+      @cash_s = @cash.to_s
+      puts "#{@name} now has #{@cash_s} in cash."
     end
     @location = Square.squarenames[@position]
     @owner = Square.squareowners[@position]

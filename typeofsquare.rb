@@ -30,10 +30,10 @@ end
 
 class GoSquare < Square
   def gopay(player, cash)
-    puts "#{player} passed or landed on Go! Collect $200!"
-    player.cash = cash + 200
+    puts "#{player.name} passed or landed on Go! Collect $200!"
+    player.cash = player.cash + 200
     cash_s = player.cash.to_s
-    puts "#{player now has #{cash_s} in cash."
+    puts "#{player.name} now has #{cash_s} in cash."
   end
 end
 class CommunityChest < Square

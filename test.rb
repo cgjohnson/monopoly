@@ -5,6 +5,7 @@ class Test
     InitializeSquares.new
     gamemaster = GameMaster.new
     responsemaster = ResponseMaster.new
+    players = []
 
     gamemaster.speak("Greetings, User.")
 
@@ -19,6 +20,7 @@ class Test
     puts "User, your cash is #{player1.cash_s}!"
     puts "User, your name is #{player1.name}!"
     puts "User, your location is #{player1.location}!"
+
 
     localtruth = true
     while localtruth

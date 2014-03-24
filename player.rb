@@ -15,7 +15,6 @@ class Player
     @color = Square.squarecolors[@position]
     @price = Square.squareprices[@position]
     @price_s = Square.squareprices[@position].to_s
-
   end
 
   #accessor methods
@@ -31,7 +30,7 @@ class Player
   def location
     @location
   end
-   def cash
+  def cash
     @cash
   end
 

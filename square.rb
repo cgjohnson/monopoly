@@ -7,10 +7,10 @@ class Square
   @@squareprices = []
 
   #constructor method
-  def initialize(id, name)
+  def initialize(id, name, owner)
     @id = id
     @name = name
-    @owner = "the bank"
+    @owner = owner
     @color = "default"
     @price = 0
     @@squarenames << @name

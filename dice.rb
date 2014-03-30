@@ -1,14 +1,15 @@
 class Dice
-  def roll
-    dice_1 = rand(1..6)
-    dice_2 = rand(1..6)
-    total = (dice_1 + dice_2)
+  #constructor method
+  def initialize
+    @total = 0
+  end
+  def roll(num)
+    dice = Array.new(num, 0)
+    dice.each do |die|
+      result = rand(1..6)
+      @total += result
+    end
+  @total
   end
 end
 
-
-#should add to function, to determine number of dice to roll
-#something along the lines of:
-#def roll(num_of_dice)
-#yada yada yada
-#end

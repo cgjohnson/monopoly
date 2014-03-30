@@ -13,7 +13,7 @@ class Player
     @info = {:name => @name,
              :position => @position,
              :cash => @cash}
-    @@players << @name
+    @@players << @info
   end
 
   def renew

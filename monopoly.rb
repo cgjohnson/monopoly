@@ -17,20 +17,21 @@ class Monopoly
     name = GameMaster.inquire("User, what is your name?")
     player1 = Player.new(name)
 
+    puts ""
     GameMaster.speak("Greetings, #{player1.name}!")
     GameMaster.speak("#{player1.name},")
     GameMaster.speak("your position is #{player1.position},")
     GameMaster.speak("you are on #{player1.location}.")
     GameMaster.speak("you have $#{player1.cash},")
 
-    GameMaster.move(player1)
-    GameMaster.inform(player1)
-=begin
     localtruth = true
     while localtruth
-      gamemaster.moveplayer(player1)
+      GameMaster.move(player1)
+      sleep(1)
+      GameMaster.inform(player1)
+      sleep(1)
+      GameMaster.choice(player1)
     end
-=end
   end
 end
 

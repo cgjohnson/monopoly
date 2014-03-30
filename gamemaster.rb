@@ -23,18 +23,19 @@ class GameMaster
     else
       puts "#{player.name} rolled a #{roll.to_s}"
     end
-    sleep(1)
 
     #update array if position hits 40, pay up
     player.position += roll
     if player.position > 39
       player.position -= 40
       player.cash += 200
+      puts ""
       if player.position == 0
         puts "#{player.name} landed on Go! Collect $200!"
       elsif
         puts "#{player.name} passed Go! Collect $200!"
       end
+      puts "#{player.name}, you now have $#{player.cash}!"
     end
     player.location = Square.list[player.position][:name]
     unless player.position == 0
@@ -42,19 +43,48 @@ class GameMaster
     end
   end
   def self.inform(player)
-    location = Square.list[player.position][:name]
-    owner = Square.list[player.position][:owner]
-    type = Square.list[player.position][:type]
-    price = Square.list[player.position][:price]
-    rent = Square.list[player.position][:rent]
-    mortgage = Square.list[player.position][:mortgage]
+    @location = Square.list[player.position][:name]
+    @owner = Square.list[player.position][:owner]
+    @type = Square.list[player.position][:type]
+    @price = Square.list[player.position][:price]
+    @rent = Square.list[player.position][:rent]
+    @mortgage = Square.list[player.position][:mortgage]
 
-    puts "Information on #{location}:"
-    puts "Owned by: #{owner}"
-    puts "Type: #{type}"
-    puts "Price: #{price}"
-    puts "Rent: #{rent}"
-    puts "Mortgage: #{mortgage}"
+    puts ""
+    puts "Information on #{@location}:"
+    puts "Owned by: #{@owner}"
+    puts "Type: #{@type}"
+    puts "Price: #{@price}"
+    puts "Rent: #{@rent}"
+    puts "Mortgage: #{@mortgage}"
+  end
+  def self.choice(player)
+    if @owner == "the bank"
+      puts ""
+      puts "#{player.name}, you have $#{player.cash}," 
+      puts "would you like to purchase #{@location} for $#{@price}?"
+      response = gets.chomp
+      localtruth = true
+      while localtruth
+        if response.upcase() == "YES" || response.upcase() == "Y"
+          puts "Wonderful!"
+          player.cash -= @price
+          puts "#{player.name}, your remaining cash is: #{player.cash}!"
+          Square.list[player.position][:owner] = player.name
+          @owner = Square.list[player.position][:owner]
+          puts "#{@owner}, you now own #{@location}!"
+          localtruth = false
+        elsif response.upcase() == "NO" || response.upcase() == "N"
+          puts "No? How dissapointing..."
+          localtruth = false
+        else
+          puts "I'm afraid I don't understand..."
+          puts "Please answer yes or no"
+          response = gets.chomp
+        end
+      end
+    end
   end
 end
+
 

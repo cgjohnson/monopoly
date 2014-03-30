@@ -2,6 +2,7 @@ class Response
   def self.yesnokill(response)
     localtruth = true
     while localtruth
+      puts ""
       if response.upcase() == "YES" || response.upcase() == "Y"
         puts "Wonderful!"
         localtruth = false

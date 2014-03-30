@@ -1,79 +1,31 @@
 require_relative 'square'
-require_relative 'typeofsquare'
-require_relative 'property'
-
 class Player
 
+  @@players = []
+
+  attr_accessor :name, :position, :cash, :location
   #constructor method
-  def initialize(id, name)
-    @id = id
+  def initialize(name)
     @name = name
     @position = 0
+    @location = Square.list[@position][:name]
     @cash = 2500
-    @location = Square.squarenames[@position]
-    @owner = Square.squareowners[@position]
-    @color = Square.squarecolors[@position]
-    @price = Square.squareprices[@position]
-    @price_s = Square.squareprices[@position].to_s
+    @info = {:name => @name,
+             :position => @position,
+             :cash => @cash}
+    @@players << @name
   end
 
+  def renew
+  end
+  def self.list
+    @@players
+  end
+end
   #accessor methods
-  def id
-    @id
-  end
-  def name
-    @name
-  end
-  def position
-    @position
-  end
-  def location
-    @location
-  end
-  def cash
-    @cash
-  end
-
-  #string accessor methods
-  def id_s
-    @id.to_s
-  end
-  def position_s
-    @position.to_s
-  end
-   def cash_s
-    @cash.to_s
-  end
-
   #action methods
-  def rollthedice
-    dice = Dice.new
-    puts "#{@name} is rolling the dice..."
-    sleep(1)
-    @roll = dice.roll
-    @roll_s = @roll.to_s
-    if @roll == 8 || @roll == 11
-      puts "#{@name} rolled an #{@roll_s}"
-    else
-      puts "#{@name} rolled a #{@roll_s}"
-    end
-  end
-  def move(player)
-    @position +=@roll
-    if @position > 39
-      @position = @position - 40
-      puts "#{@name} passed or landed on Go! Collect $200!"
-      @cash = @cash + 200
-      @cash_s = @cash.to_s
-      puts "#{@name} now has #{@cash_s} in cash."
-    end
-    @location = Square.squarenames[@position]
-    @owner = Square.squareowners[@position]
-    @color = Square.squarecolors[@position]
-    @price = Square.squareprices[@position]
-    @price_s = Square.squareprices[@position].to_s
-  end
-  def choose
+=begin
+  def 
     puts "#{@name} landed on #{@location}"
     puts "Information on #{@location}:"
     puts "Owned by: #{@owner}"
@@ -106,29 +58,9 @@ class Player
     end
   end
 end
-
-=begin
-  def buy
-    puts "#{@name} buys property"
-  end
-  def mortgage
-    puts "#{@name} mortgages property"
-  end
-  def bankrupt
-    puts "#{@name} declares bankruptcy"
-  end
-  def payup
-    puts "#{@name} pays up"
-  end
-  def receive
-    puts "#{@name} receives money"
-  end
-  def jail
-    puts "#{@name} is in jail"
-  end
-end
-
-   new_position = @position + total
-    puts "#{@name}'s new position: #{Square.gameboard[new_position]}"
-    @position = new_position
+location = Square.squarenames[@position]
+    owner = Square.squareowners[@position]
+    color = Square.squarecolors[@position]
+    price = Square.squareprices[@position]
+    price_s = Square.squareprices[@position].to_s
 =end

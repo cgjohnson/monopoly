@@ -31,6 +31,7 @@ end
 class GoSquare < Square
   def gopay
   end
+end
 class CommunityChest < Square
   def opensesame
     puts "player opened community chest"
@@ -65,4 +66,3 @@ class GoToJail < Square
     puts "player does not collect 200. player does not drop the soap."
   end
 end
-

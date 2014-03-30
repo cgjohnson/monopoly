@@ -1,30 +1,39 @@
-require_relative 'dice'
-require_relative 'square'
-require_relative 'typeofsquare'
-require_relative 'property'
-require_relative 'player'
 require_relative 'initialize'
-require_relative 'gamemaster'
-
+require_relative 'master'
+require_relative 'response'
+require_relative 'player'
+require_relative 'gameboard'
+#require_relative 'square'
 
 class Monopoly
   def play
+
     InitializeSquares.new
-    gamemaster = GameMaster.new
-    responsemaster = ResponseMaster.new
 
-    gamemaster.speak("Greetings, User.")
+    GameMaster.speak("Greetings, User.")
 
-    playtime = gamemaster.inquire("Would you like to play a game?\nyes or no")
-    responsemaster.yesno(playtime, gamemaster)
+    playtime = GameMaster.inquire("Would you like to play a game?\nyes or no")
+    Response.yesnokill(playtime)
 
-    name = gamemaster.inquire("User, what is your name?")
-    player1 = Player.new(0, name)
+    name = GameMaster.inquire("User, what is your name?")
+    player1 = Player.new(name)
 
-    gamemaster.speak("Greetings, #{player1.name}!")
+    GameMaster.speak("Greetings, #{player1.name}!")
+    GameMaster.speak("#{player1.name},")
+    GameMaster.speak("your position is #{player1.position},")
+    GameMaster.speak("you are on #{player1.location}.")
+    GameMaster.speak("you have $#{player1.cash},")
+
+    GameBoard.move(player1)
+=begin
+    localtruth = true
+    while localtruth
+      gamemaster.moveplayer(player1)
+    end
+=end
   end
 end
 
-#game = Monopoly.new
-#
-#game.play
+game = Monopoly.new
+
+game.play

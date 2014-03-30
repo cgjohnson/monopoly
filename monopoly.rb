@@ -1,8 +1,7 @@
 require_relative 'initialize'
-require_relative 'master'
+require_relative 'gamemaster'
 require_relative 'response'
 require_relative 'player'
-require_relative 'gameboard'
 #require_relative 'square'
 
 class Monopoly
@@ -24,7 +23,7 @@ class Monopoly
     GameMaster.speak("you are on #{player1.location}.")
     GameMaster.speak("you have $#{player1.cash},")
 
-    GameBoard.move(player1)
+    GameMaster.move(player1)
 =begin
     localtruth = true
     while localtruth

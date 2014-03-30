@@ -1,7 +1,4 @@
 class Dice
-  #accessor methods
-  attr_accessor :total
-
   #constructor method
   def initialize
     @total = 0

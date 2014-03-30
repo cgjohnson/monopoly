@@ -22,17 +22,8 @@ class Player
     @@players
   end
 end
-  #accessor methods
-  #action methods
-=begin
-  def 
-    puts "#{@name} landed on #{@location}"
-    puts "Information on #{@location}:"
-    puts "Owned by: #{@owner}"
-    puts "Color: #{@color}"
-    puts "Price: #{@price_s}"
-    puts " "
 
+=begin
     if @owner == "the bank"
       puts "#{@name}, would you like to purchase #{@location} for $#{@price_s}?"
       response = gets.chomp

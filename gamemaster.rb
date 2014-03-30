@@ -41,5 +41,20 @@ class GameMaster
       puts"#{player.name} landed on #{player.location}"
     end
   end
+  def self.inform(player)
+    location = Square.list[player.position][:name]
+    owner = Square.list[player.position][:owner]
+    type = Square.list[player.position][:type]
+    price = Square.list[player.position][:price]
+    rent = Square.list[player.position][:rent]
+    mortgage = Square.list[player.position][:mortgage]
+
+    puts "Information on #{location}:"
+    puts "Owned by: #{owner}"
+    puts "Type: #{type}"
+    puts "Price: #{price}"
+    puts "Rent: #{rent}"
+    puts "Mortgage: #{mortgage}"
+  end
 end
 

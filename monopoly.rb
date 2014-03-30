@@ -24,6 +24,7 @@ class Monopoly
     GameMaster.speak("you have $#{player1.cash},")
 
     GameMaster.move(player1)
+    GameMaster.inform(player1)
 =begin
     localtruth = true
     while localtruth

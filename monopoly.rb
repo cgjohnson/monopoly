@@ -2,7 +2,6 @@ require_relative 'initialize'
 require_relative 'gamemaster'
 require_relative 'response'
 require_relative 'player'
-#require_relative 'square'
 
 class Monopoly
   def play

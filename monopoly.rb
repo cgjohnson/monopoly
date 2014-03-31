@@ -14,23 +14,39 @@ class Monopoly
     playtime = GameMaster.inquire("Would you like to play a game?\nyes or no")
     Response.yesnokill(playtime)
 
-    name = GameMaster.inquire("User, what is your name?")
-    player1 = Player.new(name)
+    @number = GameMaster.inquire("User, how many players are there in total?").to_i
+    @players = []
+    i = 0
+    @number.times do
+      puts ""
+      name = GameMaster.inquire("User, what is your name?")
+      @players << GameMaster.create(name)
+      puts ""
+      GameMaster.speak("Greetings, #{@players[i].name}!")
+      i += 1
+    end
 
-    puts ""
-    GameMaster.speak("Greetings, #{player1.name}!")
-    GameMaster.speak("#{player1.name},")
-    GameMaster.speak("your position is #{player1.position},")
-    GameMaster.speak("you are on #{player1.location}.")
-    GameMaster.speak("you have $#{player1.cash},")
+    i = 0
+    @number.times do
+      GameMaster.speak("#{@players[i].name},")
+      GameMaster.speak("your position is #{@players[i].position},")
+      GameMaster.speak("you are on #{@players[i].location}.")
+      GameMaster.speak("you have $#{@players[i].cash},")
+      i += 1
+    end
 
     localtruth = true
     while localtruth
-      GameMaster.move(player1)
-      sleep(1)
-      GameMaster.inform(player1)
-      sleep(1)
-      GameMaster.choice(player1)
+      i = 0
+      @number.times do
+        GameMaster.move(@players[i])
+        sleep(1)
+        GameMaster.inform(@players[i])
+        sleep(1)
+        GameMaster.choice(@players[i])
+        i += 1
+        sleep(1)
+      end
     end
   end
 end

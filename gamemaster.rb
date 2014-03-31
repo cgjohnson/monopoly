@@ -10,6 +10,9 @@ class GameMaster
     puts question
     answer = gets.chomp
   end
+  def self.create(player)
+    player = Player.new(player)
+  end
   def self.move(player)
     #roll the dice
     dice = Dice.new
@@ -39,7 +42,7 @@ class GameMaster
     end
     player.location = Square.list[player.position][:name]
     unless player.position == 0
-      puts"#{player.name} landed on #{player.location}"
+      puts"#{player.name} landed on #{player.location}, square #{player.position}."
     end
   end
   def self.inform(player)

@@ -52,14 +52,20 @@ class GameMaster
     @price = Square.list[player.position][:price]
     @rent = Square.list[player.position][:rent]
     @mortgage = Square.list[player.position][:mortgage]
-
-    puts ""
-    puts "Information on #{@location}:"
-    puts "Owned by: #{@owner}"
-    puts "Type: #{@type}"
-    puts "Price: #{@price}"
-    puts "Rent: #{@rent}"
-    puts "Mortgage: #{@mortgage}"
+    if @type == "special"
+      puts ""
+      puts "Information on #{@location}:"
+      puts "Type: #{@type}"
+      puts "something special happens!"
+    else
+      puts ""
+      puts "Information on #{@location}:"
+      puts "Owned by: #{@owner}"
+      puts "Type: #{@type}"
+      puts "Price: #{@price}"
+      puts "Rent: #{@rent}"
+      puts "Mortgage: #{@mortgage}"
+    end
   end
   def self.choice(player)
     if @owner == "the bank"

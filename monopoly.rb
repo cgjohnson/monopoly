@@ -2,36 +2,37 @@ require_relative 'initialize'
 require_relative 'gamemaster'
 require_relative 'response'
 require_relative 'player'
-#require_relative 'square'
 
 class Monopoly
   def play
 
     InitializeSquares.new
 
-    GameMaster.speak("Greetings, User.")
+    gamemaster = GameMaster.new
+    gamemaster.speak("Greetings, User.")
 
-    playtime = GameMaster.inquire("Would you like to play a game?\nyes or no")
+    playtime = gamemaster.inquire("Would you like to play a game?\nyes or no")
     Response.yesnokill(playtime)
 
-    @number = GameMaster.inquire("User, how many players are there in total?").to_i
+    @number = gamemaster.inquire("User, how many players are there in total?").to_i
     @players = []
     i = 0
     @number.times do
       puts ""
-      name = GameMaster.inquire("User, what is your name?")
-      @players << GameMaster.create(name)
+      name = gamemaster.inquire("User, what is your name?")
+      @players << gamemaster.create(name)
       puts ""
-      GameMaster.speak("Greetings, #{@players[i].name}!")
+      gamemaster.speak("Greetings, #{@players[i].name}!")
       i += 1
     end
-
+    gamemaster.players = @players
+    gamemaster.number = @number
     i = 0
     @number.times do
-      GameMaster.speak("#{@players[i].name},")
-      GameMaster.speak("your position is #{@players[i].position},")
-      GameMaster.speak("you are on #{@players[i].location}.")
-      GameMaster.speak("you have $#{@players[i].cash},")
+      gamemaster.speak("#{@players[i].name},")
+      gamemaster.speak("your position is #{@players[i].position},")
+      gamemaster.speak("you are on #{@players[i].location}.")
+      gamemaster.speak("you have $#{@players[i].cash},")
       i += 1
     end
 
@@ -39,11 +40,11 @@ class Monopoly
     while localtruth
       i = 0
       @number.times do
-        GameMaster.move(@players[i])
+        gamemaster.move(@players[i])
         sleep(1)
-        GameMaster.inform(@players[i])
+        gamemaster.inform(@players[i])
         sleep(1)
-        GameMaster.choice(@players[i])
+        gamemaster.choice(@players[i])
         i += 1
         sleep(1)
       end

@@ -13,19 +13,23 @@ class Square
   @@railroadsquares = []
 
   attr_accessor :id, :name, :owner, :price,
-                :type, :rent, :mortgage, :info
+                :type, :rent, :house_cost,
+                :mortgage, :info
   #constructor method
-  def initialize(id, name, owner, type, price, rent, mortgage)
-    @id = id
+  def initialize(name, owner, type, price, rent, house_cost, mortgage)
     @name = name
     @owner = owner
     @type = type
     @price = price
     @rent = rent
+    @house_cost = house_cost
     @mortgage = mortgage
-    @info = {:id => @id, :name => @name,
-            :owner => @owner, :type => type,
-            :price => @price, :rent => @rent,
+    @info = {:name => @name,
+            :owner => @owner,
+            :type => @type,
+            :price => @price,
+            :rent => @rent,
+            :house_cost => @house_cost,
             :mortgage => @mortgage}
     @@squares << @info
     case @type
@@ -57,3 +61,17 @@ class Square
     @@squares
   end
 end
+
+class SpecialSquare < Square
+  attr_accessor :name, :owner, :type
+  def initialize(name, owner, type)
+    @name = name
+    @owner = owner
+    @type = type
+    @info = {:name => @name,
+             :owner => @owner,
+             :type => @type}
+  @@squares << @info
+  end
+end
+#specialsquare(name, owner, type)

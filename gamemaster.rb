@@ -2,18 +2,23 @@ require_relative 'dice'
 require_relative 'player'
 
 class GameMaster
+  attr_accessor :players, :number
+  def initialize
+    @players = []
+    @number = 0
+  end
   #action methods
-  def self.speak(words)
+  def speak(words)
     puts words
   end
-  def self.inquire(question)
+  def inquire(question)
     puts question
     answer = gets.chomp
   end
-  def self.create(player)
+  def create(player)
     player = Player.new(player)
   end
-  def self.move(player)
+  def move(player)
     #roll the dice
     dice = Dice.new
     puts "#{player.name}, please press enter to roll the dice."
@@ -45,7 +50,7 @@ class GameMaster
       puts"#{player.name} landed on #{player.location}, square #{player.position}."
     end
   end
-  def self.inform(player)
+  def inform(player)
     @location = Square.list[player.position][:name]
     @owner = Square.list[player.position][:owner]
     @type = Square.list[player.position][:type]
@@ -67,7 +72,17 @@ class GameMaster
       puts "Mortgage: #{@mortgage}"
     end
   end
-  def self.choice(player)
+  def choice(player)
+    i = 0
+    @number.times do
+      if @owner == @players[i].name
+        puts ""
+        puts "Shit, you landed on a square owned by #{@owner}!"
+        puts "You owe money!" 
+        puts "I'll get to work on determining the exact amounts and deducting it later..."
+      end
+      i += 1
+    end
     if @owner == "the bank"
       puts ""
       puts "#{player.name}, you have $#{player.cash}," 

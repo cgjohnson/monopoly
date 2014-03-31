@@ -61,7 +61,7 @@ class InitializeSquares
     kentucky =      Square.new("Kentucky Avenue", "the bank", "red",
                                 220, [18, 90, 250, 700, 875, 1050], 150, 110)
 
-    chance_2 =      SpecialSquare.new("Chance", "gamemaster", "chance")
+    chance_2 =      SpecialSquare.new("Chance", "gamemaster", "special")
 
     indiana =       Square.new("Indiana Avenue", "the bank", "red",
                                 220, [18, 90, 250, 700, 875, 1050], 150, 110)

@@ -75,11 +75,12 @@ class GameMaster
   def choice(player)
     i = 0
     @number.times do
-      if @owner == @players[i].name
+      if @owner == @players[i].name && @owner != player
         puts ""
         puts "Shit, you landed on a square owned by #{@owner}!"
         puts "You owe money!" 
         puts "I'll get to work on determining the exact amounts and deducting it later..."
+        puts "Oh no! You have to pay $#{@rent[0]} in rent!"
       end
       i += 1
     end

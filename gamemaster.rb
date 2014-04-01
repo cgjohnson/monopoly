@@ -81,6 +81,8 @@ class GameMaster
         puts "You owe money!" 
         puts "I'll get to work on determining the exact amounts and deducting it later..."
         puts "Oh no! You have to pay $#{@rent[0]} in rent!"
+        player.cash -= @rent[0]
+        puts "I'm afraid you now only have $#{player.cash} in cash..."
       end
       i += 1
     end

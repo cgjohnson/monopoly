@@ -1,7 +1,10 @@
 require_relative 'initialize'
 require_relative 'gamemaster'
-require_relative 'response'
 require_relative 'player'
+require_relative 'playerfactory'
+require_relative 'playermover'
+require_relative 'response'
+require_relative 'informant'
 
 class Monopoly
   def play
@@ -9,6 +12,9 @@ class Monopoly
     InitializeSquares.new
 
     gamemaster = GameMaster.new
+    playerfactory = PlayerFactory.new
+    playermover = PlayerMover.new
+    informant = Informant.new
     gamemaster.speak("Greetings, User.")
 
     playtime = gamemaster.inquire("Would you like to play a game?\nyes or no")
@@ -18,10 +24,8 @@ class Monopoly
     @players = []
     i = 0
     @number.times do
-      puts ""
       name = gamemaster.inquire("User, what is your name?")
-      @players << gamemaster.create(name)
-      puts ""
+      @players << playerfactory.build(name)
       gamemaster.speak("Greetings, #{@players[i].name}!")
       i += 1
     end
@@ -40,13 +44,10 @@ class Monopoly
     while localtruth
       i = 0
       @number.times do
-        gamemaster.move(@players[i])
-        sleep(1)
-        gamemaster.inform(@players[i])
-        sleep(1)
-        gamemaster.choice(@players[i])
+        playermover.move(@players[i])
+        informant.inform(@players[i])
+        informant.choice(@players[i], @number, @players)
         i += 1
-        sleep(1)
       end
     end
   end

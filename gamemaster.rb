@@ -15,9 +15,6 @@ class GameMaster
     puts question
     answer = gets.chomp
   end
-  def create(player)
-    player = Player.new(player)
-  end
   def move(player)
     #roll the dice
     dice = Dice.new
@@ -37,7 +34,6 @@ class GameMaster
     if player.position > 39
       player.position -= 40
       player.cash += 200
-      puts ""
       if player.position == 0
         puts "#{player.name} landed on Go! Collect $200!"
       elsif

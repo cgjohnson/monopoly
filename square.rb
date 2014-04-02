@@ -74,4 +74,3 @@ class SpecialSquare < Square
   @@squares << @info
   end
 end
-#specialsquare(name, owner, type)

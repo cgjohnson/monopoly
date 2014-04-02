@@ -27,9 +27,7 @@ class Informant
     number.times do
       if @owner == playerlist[i].name && @owner != player
         puts "Shit, you landed on a square owned by #{@owner}!"
-        puts "You owe money!" 
-        puts "I'll get to work on determining the exact amounts and deducting it later..."
-        puts "Oh no! You have to pay $#{@rent[0]} in rent!"
+        puts "It appears you owe $#{@rent[0]} in rent!"
         player.cash -= @rent[0]
         puts "I'm afraid you now only have $#{player.cash} in cash..."
       end

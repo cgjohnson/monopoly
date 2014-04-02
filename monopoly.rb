@@ -4,6 +4,7 @@ require_relative 'player'
 require_relative 'playerfactory'
 require_relative 'playermover'
 require_relative 'response'
+require_relative 'informant'
 
 class Monopoly
   def play
@@ -13,6 +14,7 @@ class Monopoly
     gamemaster = GameMaster.new
     playerfactory = PlayerFactory.new
     playermover = PlayerMover.new
+    informant = Informant.new
     gamemaster.speak("Greetings, User.")
 
     playtime = gamemaster.inquire("Would you like to play a game?\nyes or no")
@@ -43,8 +45,8 @@ class Monopoly
       i = 0
       @number.times do
         playermover.move(@players[i])
-        gamemaster.inform(@players[i])
-        gamemaster.choice(@players[i])
+        informant.inform(@players[i])
+        informant.choice(@players[i], @number, @players)
         i += 1
       end
     end

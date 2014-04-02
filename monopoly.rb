@@ -15,10 +15,9 @@ class Monopoly
     playerfactory = PlayerFactory.new
     playermover = PlayerMover.new
     informant = Informant.new
-    gamemaster.speak("Greetings, User.")
 
-    playtime = gamemaster.inquire("Would you like to play a game?\nyes or no")
-    Response.yesnokill(playtime)
+    wannaplay = gamemaster.inquire("Greetings, User.\nWould you like to play a game?\nyes or no")
+    Response.yesnokill(wannaplay)
 
     @number = gamemaster.inquire("User, how many players are there in total?").to_i
     @players = []

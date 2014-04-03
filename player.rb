@@ -1,4 +1,3 @@
-
 module MonopolyFramework
   class Player
     @@manifest = []

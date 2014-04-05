@@ -1,4 +1,3 @@
-require_relative 'verify'
 class Bank
   def gopay(player)
     player.cash += 200

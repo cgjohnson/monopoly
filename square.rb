@@ -114,7 +114,7 @@ class SquareIndustry
                         :name     => 'Electric Company',
                         :type     => 'utility',
                         :price    => 150,
-                        :rent     => 'depends on the roll',
+                        :rent     => 0, #depends on the roll, need to add function for this
                         :house    => 'none',
                         :mortgage => 75)
     @manifest << SquareFactory.build('states',
@@ -208,7 +208,7 @@ class SquareIndustry
                         :name  =>  'Water Works',
                         :type  =>  'utility',
                         :price =>  150,
-                        :rent  =>  'depends on the roll',
+                        :rent  =>  0, #depends on the roll, need to add function for this
                         :house =>  'none',
                         :mortgage => 75)
     @manifest << SquareFactory.build('marvin',

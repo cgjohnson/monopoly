@@ -4,10 +4,10 @@ class Response
     response = gets.chomp
     localtruth = true
     while localtruth
-      if response.upcase() == 'YES' || response.upcase() == "Y"
+      if response.upcase() == 'YES' || response.upcase() == 'Y'
         puts 'Wonderful!'
         localtruth = false
-      elsif response.upcase() == 'NO' || response.upcase() == "N"
+      elsif response.upcase() == 'NO' || response.upcase() == 'N'
         puts 'No? How dissapointing...'
         exit
       else
@@ -22,10 +22,10 @@ class Response
     response = gets.chomp
     localtruth = 0
     while localtruth == 0
-      if response.upcase() == 'YES' || response.upcase() == "Y"
+      if response.upcase() == 'YES' || response.upcase() == 'Y'
         puts 'Wonderful!'
         localtruth = 1
-      elsif response.upcase() == 'NO' || response.upcase() == "N" || response.upcase == 'NOPE'
+      elsif response.upcase() == 'NO' || response.upcase() == 'N' || response.upcase == 'NOPE'
         puts 'No? How dissapointing...'
         localtruth = 2
       else

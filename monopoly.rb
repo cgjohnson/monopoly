@@ -5,6 +5,7 @@ require_relative 'bank'
 require_relative 'square'
 require_relative 'turn'
 require_relative 'landlord'
+require_relative 'verify'
 
 class Monopoly
   def play
@@ -23,19 +24,3 @@ monopoly = Monopoly.new
 
 monopoly.play
 
-
-
-
-
-#might be useful...
-=begin
-class Check
-  def monopolies
-    if Square.blue[0][:owner] == Square.blue[1][:owner] && Square.blue[0][:owner] != 'the Bank'
-      true
-    else
-      false
-    end
-  end
-end
-=end

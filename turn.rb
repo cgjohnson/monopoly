@@ -7,7 +7,7 @@ module TurnRegulator
       players.each do |player|
         PlayerMover.move(player, bank, squares)
         landlord.notify(player, squares)
-        landlord.collect(player, players, squares)
+        landlord.collect(player, players, squares, bank)
      end
     end
   end

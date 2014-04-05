@@ -5,7 +5,7 @@ module TurnRegulator
     localtruth  = true
     while localtruth
       players.each do |player|
-#        landlord.options(player, bank, squares)
+        landlord.options(player, bank, squares)
         PlayerMover.move(player, bank, squares)
         landlord.notify(player, squares)
         landlord.collect(player, players, squares, bank)

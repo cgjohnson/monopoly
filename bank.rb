@@ -43,7 +43,7 @@ class Bank
           squares[player.position].owner = player.name
           puts "#{squares[player.position].owner}, you now own #{location}!"
           color = squares[player.position].type
-          if Verify.monopoly?(color, squares)
+          if VerifyMonopoly.monopoly?(color, squares)
             puts "#{player.name}, you now control the #{color} monopoly!"
           end
           localtruth = false

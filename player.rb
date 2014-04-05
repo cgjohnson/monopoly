@@ -35,7 +35,7 @@ class Player
 end
 
 
-class PlayerMover
+module PlayerMover
   def self.move(player, bank, squares)
     #roll the dice
     dice = Dice.new

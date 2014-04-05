@@ -3,14 +3,14 @@ class PlayerIndustry
   def initialize
     @manifest = []
   end
-  def build
+  def build(squares)
     puts 'User, how many players are there in total?'
     num = gets.chomp.to_i
     i = 0
     num.times do
       puts 'User, what is your name?'
       name = gets.chomp
-      @manifest << PlayerFactory.build(name)
+      @manifest << PlayerFactory.build(name, squares)
       puts "Greetings, #{@manifest[i].name}."
       i += 1
     end
@@ -18,18 +18,18 @@ class PlayerIndustry
 end
 
 module PlayerFactory
-  def self.build(player)
-    player = Player.new(player)
+  def self.build(player, squares)
+    player = Player.new(player, squares)
   end
 end
 
 class Player
   attr_accessor :name, :position, :location, :cash, :properties
-  def initialize(name)
+  def initialize(name, squares)
     @name = name
     @position = 0
     #need to fulfill a square dependency here
-    @location = 'location, a function of position and square attributes'
+    @location = squares[@position].name
     @cash = 2500
     @properties = []
   end
@@ -37,7 +37,7 @@ end
 
 
 class PlayerMover
-  def self.move(player, bank)
+  def self.move(player, bank, squares)
     #roll the dice
     dice = Dice.new
     puts "#{player.name}, please press enter to roll the dice."
@@ -60,8 +60,7 @@ class PlayerMover
     end
 
     #need to fulfill a square dependency here
-    player.location ='the new location, based upon position and square'
-
+    player.location =  squares[player.position].name
     #notify player of result
     unless player.position == 0
       puts"#{player.name} landed on #{player.location}, square #{player.position}."

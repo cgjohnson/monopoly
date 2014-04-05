@@ -46,7 +46,50 @@ class Bank
       end
     end
   end
+=begin
+  def mortgage(player, squares)
+    localtruth = true
+    while localtruth
+      squares.each do |square|
+        if square.owner == player.name
+          localtruth = false
+          puts "#{player.name}, would you like to mortgage any of your properties?"
+          response = gets.chomp
+          morelocaltruth = true
+          properties = []
+          while morelocaltruth
+            if response.upcase() == "YES" || response.upcase() == "Y"
+              squares.each do |square|
+                if square.owner == player.name
+                  properties << square
+                end
+              end
+              puts "#{player.name}, these are your properties:"
+              puts properties
+              puts"Which ones would you like to mortgage?"
+              response = gets.chomp
 
+              puts "Wonderful!"
+              morelocaltruth = false
+            elsif response.upcase() == "NO" || response.upcase() == "N"
+              puts "No? Carry on!"
+              morelocaltruth = false
+            else
+              puts "I'm afraid I don't understand..."
+              puts "Please answer yes or no"
+              response = gets.chomp
+            end
+          end
+
+        end
+      end
+    end
+    squares.each do |square|
+      if square.owner == player.name #&& no houses/hotels
+      end
+    end
+  end
+=end
   def monopolize(player)
     #check if player has any monopolies, 
     #offer houses / hotel if they do

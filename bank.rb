@@ -31,35 +31,25 @@ class Bank
 
   def sell(player, squares, owner, location, price)
     if owner == "the Bank"
-      puts "#{player.name}, you have $#{player.cash}," 
-      puts "would you like to purchase #{location} for $#{price}?"
-      response = gets.chomp
-      localtruth = true
-      while localtruth
-        if response.upcase() == "YES" || response.upcase() == "Y"
-          puts "Wonderful!"
-          player.cash -= price
-          puts "#{player.name}, your remaining cash is: #{player.cash}!"
-          squares[player.position].owner = player.name
-          puts "#{squares[player.position].owner}, you now own #{location}!"
-          color = squares[player.position].type
-          if VerifyMonopoly.monopoly?(color, squares)
-            puts "#{player.name}, you now control the #{color} monopoly!"
-          end
-          localtruth = false
-        elsif response.upcase() == "NO" || response.upcase() == "N"
-          puts "No? How dissapointing..."
-          localtruth = false
-        else
-          puts "I'm afraid I don't understand..."
-          puts "Please answer yes or no"
-          response = gets.chomp
+      response = Response.new
+      puts "#{player.name}, you have $#{player.cash},"
+      purchased = response.yesno?("Would you like to purchase #{location} for $#{price}?")
+      if purchased
+        player.cash -= price
+        puts "#{player.name}, your remaining cash is: #{player.cash}!"
+        squares[player.position].owner = player.name
+        puts "#{squares[player.position].owner}, you now own #{location}!"
+        color = squares[player.position].type
+        if VerifyMonopoly.monopoly?(color, squares)
+          puts "#{player.name}, you now control the #{color} monopoly!"
         end
       end
     end
   end
+
   def monopolize(player)
     #check if player has any monopolies, 
     #offer houses / hotel if they do
   end
 end
+

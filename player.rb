@@ -28,7 +28,6 @@ class Player
   def initialize(name, squares)
     @name = name
     @position = 0
-    #need to fulfill a square dependency here
     @location = squares[@position].name
     @cash = 2500
     @properties = []
@@ -59,8 +58,8 @@ class PlayerMover
       bank.gopay(player)
     end
 
-    #need to fulfill a square dependency here
     player.location =  squares[player.position].name
+
     #notify player of result
     unless player.position == 0
       puts"#{player.name} landed on #{player.location}, square #{player.position}."

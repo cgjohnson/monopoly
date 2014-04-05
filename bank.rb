@@ -58,7 +58,8 @@ class Bank
       end
     end
   end
-  def monopolize
-    #something with VerifyMonopoilzer
+  def monopolize(player)
+    #check if player has any monopolies, 
+    #offer houses / hotel if they do
   end
 end

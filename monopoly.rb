@@ -1,57 +1,41 @@
-require_relative 'initialize'
-require_relative 'gamemaster'
 require_relative 'player'
-require_relative 'playerfactory'
-require_relative 'playermover'
 require_relative 'response'
-require_relative 'informant'
+require_relative 'dice'
+require_relative 'bank'
+require_relative 'square'
+require_relative 'turn'
+require_relative 'landlord'
 
 class Monopoly
   def play
-
-    InitializeSquares.new
-
-    gamemaster = GameMaster.new
-    playerfactory = PlayerFactory.new
-    playermover = PlayerMover.new
-    informant = Informant.new
-
-    wannaplay = gamemaster.inquire("Greetings, User.\nWould you like to play a game?\nyes or no")
-    Response.yesnokill(wannaplay)
-
-    @number = gamemaster.inquire("User, how many players are there in total?").to_i
-    @players = []
-    i = 0
-    @number.times do
-      name = gamemaster.inquire("User, what is your name?")
-      @players << playerfactory.build(name)
-      gamemaster.speak("Greetings, #{@players[i].name}!")
-      i += 1
-    end
-    gamemaster.players = @players
-    gamemaster.number = @number
-    i = 0
-    @number.times do
-      gamemaster.speak("#{@players[i].name},")
-      gamemaster.speak("your position is #{@players[i].position},")
-      gamemaster.speak("you are on #{@players[i].location}.")
-      gamemaster.speak("you have $#{@players[i].cash},")
-      i += 1
-    end
-
-    localtruth = true
-    while localtruth
-      i = 0
-      @number.times do
-        playermover.move(@players[i])
-        informant.inform(@players[i])
-        informant.choice(@players[i], @number, @players)
-        i += 1
-      end
-    end
+    Response.yesnokill("Greetings, User.\nWould you like to play a game?")
+    squareindustry = SquareIndustry.new
+    squareindustry.build
+    playerindustry = PlayerIndustry.new
+    playerindustry.build(squareindustry.manifest)
+    TurnRegulator.turn(playerindustry.manifest, squareindustry.manifest)
   end
 end
 
-game = Monopoly.new
 
-game.play
+
+monopoly = Monopoly.new
+
+monopoly.play
+
+
+
+
+
+#might be useful...
+=begin
+class Check
+  def monopolies
+    if Square.blue[0][:owner] == Square.blue[1][:owner] && Square.blue[0][:owner] != 'the Bank'
+      true
+    else
+      false
+    end
+  end
+end
+=end

@@ -27,7 +27,7 @@ class LandLord
   def options(player, bank, squares)
     owned = []
     squares.each do |square|
-      if square.owner == player.name #&& no houses/hotels
+      if square.owner == player.name && square.monopoly == 0
         owned << square
       end
     end

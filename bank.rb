@@ -15,7 +15,7 @@ class Bank
         puts "Shit, you landed on a square owned by #{owner}!"
         rent = rent[0]
         color = squares[player.position].type
-        if VerifyMonopoly.monopoly?(color, squares) #&& no houses or hotels
+        if VerifyMonopoly.monopoly?(color, squares) && squares[player.position].monopoly == 0
           puts "Shit, #{owner} has a monopoly here!"
           puts 'Luckily for you, there are no houses or hotel.'
           rent *=2

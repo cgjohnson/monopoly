@@ -46,9 +46,7 @@ class Bank
       end
     end
   end
-<<<<<<< HEAD
 
-=======
   def mortgage(player, properties)
     response = Response.new
     puts "#{player.name}, you own these properties:"
@@ -84,7 +82,7 @@ class Bank
       end
     end
   end
->>>>>>> options
+
   def monopolize(player)
     #check if player has any monopolies, 
     #offer houses / hotel if they do

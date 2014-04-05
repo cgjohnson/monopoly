@@ -24,8 +24,6 @@ class LandLord
     bank.rent(player, players, squares, @owner, @rent)
     bank.sell(player, squares, @owner, @location, @price)
   end
-<<<<<<< HEAD
-=======
   def options(player, bank, squares)
     owned = []
     squares.each do |square|
@@ -45,5 +43,4 @@ class LandLord
     end
 =end
   end
->>>>>>> options
 end

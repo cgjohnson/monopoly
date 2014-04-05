@@ -24,4 +24,26 @@ class LandLord
     bank.rent(player, players, squares, @owner, @rent)
     bank.sell(player, squares, @owner, @location, @price)
   end
+<<<<<<< HEAD
+=======
+  def options(player, bank, squares)
+    owned = []
+    squares.each do |square|
+      if square.owner == player.name && square.monopoly == 0
+        owned << square
+      end
+    end
+    if owned.length > 0
+      bank.mortgage(player, owned)
+    end
+=begin
+    if 'player owns properties with houses/hotel'
+      bank.sell(player, properties)
+    end
+    if 'player has monopolies'
+      bank.monopolize(player, colors)
+    end
+=end
+  end
+>>>>>>> options
 end

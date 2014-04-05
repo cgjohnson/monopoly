@@ -15,7 +15,7 @@ class Bank
         puts "Shit, you landed on a square owned by #{owner}!"
         rent = rent[0]
         color = squares[player.position].type
-        if VerifyMonopoly.monopoly?(color, squares) #&& no houses or hotels
+        if VerifyMonopoly.monopoly?(color, squares) && squares[player.position].monopoly == 0
           puts "Shit, #{owner} has a monopoly here!"
           puts 'Luckily for you, there are no houses or hotel.'
           rent *=2
@@ -46,7 +46,45 @@ class Bank
       end
     end
   end
+<<<<<<< HEAD
 
+=======
+  def mortgage(player, properties)
+    response = Response.new
+    puts "#{player.name}, you own these properties:"
+    names = []
+    properties.each do |square|
+      names << square.name
+    end
+    puts names
+    mortgage = response.yesno?("#{player.name}, would you like to mortgage any of your properties?")
+    if mortgage
+      puts "Which ones?"
+      response = gets.chomp
+      while response.upcase != 'NO' || response.upcase != 'NONE' || resonse.upcase != 'N' || response.upcase != 'NO MORE' || response.upcase != 'CANCEL'
+        log = `echo #{response} << /.response_log`
+        if response.upcase == 'ALL' || response.upcase == 'ALL OF THEM'
+          properties.each do |square|
+            square.ismortgaged = true
+            player.cash += square.mortgage
+            response = 'no more'
+          end
+        else
+          properties.each do |square|
+            if response.upcase == square.name.upcase || response.upcase == square.name.upcase.split(' ')
+              square.ismortgaged = true
+              player.cash += square.mortgage
+            else
+              puts "Excuse me, #{player.name}, I'm afraid I don't understand."
+              puts "Some acceptable responses are:\nall\nnone\nsquare name"
+              response = gets.chomp
+            end
+          end
+        end
+      end
+    end
+  end
+>>>>>>> options
   def monopolize(player)
     #check if player has any monopolies, 
     #offer houses / hotel if they do

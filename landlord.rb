@@ -20,19 +20,8 @@ class LandLord
       puts "Mortgage: #{@mortgage}"
     end
   end
-  def collect(player, players, squares)
-    players.each do |landlord|
-      if @owner == landlord.name && @owner != player.name
-        puts "Shit, you landed on a square owned by #{@owner}!"
-        #using @rent[0] until monopolies can be determined, 
-        #will add check here when necessary
-        puts "It appears you owe $#{@rent[0]} in rent!"
-        player.cash -= @rent[0]
-        landlord.cash += @rent[0]
-        puts "I'm afraid #{player.name} now only has $#{player.cash} in cash..."
-        puts "#{landlord.name}, you now have $#{landlord.cash} in cash!"
-      end
-    end
+  def collect(player, players, squares, bank)
+    bank.rent(player, players, @owner, @rent)
     if @owner == "the Bank"
       puts "#{player.name}, you have $#{player.cash}," 
       puts "would you like to purchase #{@location} for $#{@price}?"
@@ -58,4 +47,15 @@ class LandLord
     end
   end
 end
-
+#might be useful...
+=begin
+class Check
+  def monopolies
+    if Square.blue[0][:owner] == Square.blue[1][:owner] && Square.blue[0][:owner] != 'the Bank'
+      true
+    else
+      false
+    end
+  end
+end
+=end

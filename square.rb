@@ -1,5 +1,5 @@
 class Square
-  attr_accessor :name, :owner, :type, :price, :rent, :house, :mortgage, :info
+  attr_accessor :name, :owner, :type, :price, :rent, :house, :mortgage, :monopoly
   def initialize(name, type, price, rent, house, mortgage)
     @name     = name
     @owner    = 'the Bank'
@@ -8,6 +8,7 @@ class Square
     @rent     = rent
     @house    = house
     @mortgage = mortgage
+    @monopoly = 0
    end
 end
 

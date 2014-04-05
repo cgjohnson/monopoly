@@ -1,5 +1,4 @@
 class Dice
-  #constructor method
   def initialize
     @total = 0
   end

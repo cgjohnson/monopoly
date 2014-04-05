@@ -5,6 +5,7 @@ require_relative 'bank'
 require_relative 'square'
 require_relative 'turn'
 require_relative 'landlord'
+require_relative 'verify'
 
 class Monopoly
   def play

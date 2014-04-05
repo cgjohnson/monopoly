@@ -1,3 +1,4 @@
+require_relative 'verify'
 class Bank
   def gopay(player)
     player.cash += 200
@@ -8,18 +9,26 @@ class Bank
     end
     puts "#{player.name}, you now have $#{player.cash}!"
   end
-  def rent(player, players, owner, rent)
+
+  def rent(player, players, squares, owner, rent)
     players.each do |landlord|
       if owner == landlord.name && owner != player.name
         puts "Shit, you landed on a square owned by #{owner}!"
-#        if squares[player.position].
-        puts "It appears you owe $#{rent[0]} in rent!"
-        player.cash -= rent[0]
-        landlord.cash += rent[0]
+        rent = rent[0]
+        color = squares[player.position].type
+        if Verify.monopoly?(color, squares) #&& no houses or hotels
+          puts "Shit, #{owner} has a monopoly here!"
+          puts 'Luckily for you, there are no houses or hotel.'
+          rent *=2
+        end
+        puts "It appears you owe $#{rent} in rent!"
+        player.cash -= rent
+        landlord.cash += rent
         puts "I'm afraid #{player.name} now only has $#{player.cash} in cash..."
         puts "#{landlord.name}, you now have $#{landlord.cash} in cash!"
       end
     end
+
     def sell(player, squares, owner, location, price)
       if owner == "the Bank"
         puts "#{player.name}, you have $#{player.cash}," 

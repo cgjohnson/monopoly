@@ -21,19 +21,7 @@ class LandLord
     end
   end
   def collect(player, players, squares, bank)
-    bank.rent(player, players, @owner, @rent)
+    bank.rent(player, players, squares, @owner, @rent)
     bank.sell(player, squares, @owner, @location, @price)
   end
 end
-#might be useful...
-=begin
-class Check
-  def monopolies
-    if Square.blue[0][:owner] == Square.blue[1][:owner] && Square.blue[0][:owner] != 'the Bank'
-      true
-    else
-      false
-    end
-  end
-end
-=end

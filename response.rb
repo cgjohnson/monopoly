@@ -4,15 +4,15 @@ class Response
     response = gets.chomp
     localtruth = true
     while localtruth
-      if response.upcase() == "YES" || response.upcase() == "Y"
-        puts "Wonderful!"
+      if response.upcase() == 'YES' || response.upcase() == 'Y'
+        puts 'Wonderful!'
         localtruth = false
-      elsif response.upcase() == "NO" || response.upcase() == "N"
-        puts "No? How dissapointing..."
+      elsif response.upcase() == 'NO' || response.upcase() == 'N'
+        puts 'No? How dissapointing...'
         exit
       else
         puts "I'm afraid I don't understand..."
-        puts "Please answer yes or no"
+        puts 'Please answer yes or no'
         response = gets.chomp
       end
     end
@@ -22,15 +22,15 @@ class Response
     response = gets.chomp
     localtruth = 0
     while localtruth == 0
-      if response.upcase() == "YES" || response.upcase() == "Y"
-        puts "Wonderful!"
+      if response.upcase() == 'YES' || response.upcase() == 'Y'
+        puts 'Wonderful!'
         localtruth = 1
-      elsif response.upcase() == "NO" || response.upcase() == "N"
-        puts "No? How dissapointing..."
+      elsif response.upcase() == 'NO' || response.upcase() == 'N' || response.upcase == 'NOPE'
+        puts 'No? How dissapointing...'
         localtruth = 2
       else
         puts "I'm afraid I don't understand..."
-        puts "Please answer yes or no"
+        puts 'Please answer yes or no'
         response = gets.chomp
       end
     end

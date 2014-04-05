@@ -9,7 +9,7 @@ module TurnRegulator
         response = gets.chomp
         result = 0
         while result == 0
-          log = `echo #{response} >> .response_log}`
+          log = `echo #{response} >> .response_log`
           case response.upcase
           when 'ROLL THE DICE', 'ROLL', 'DICE', ''
             result = 1

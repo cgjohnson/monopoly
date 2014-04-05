@@ -39,10 +39,7 @@ module PlayerMover
   def self.move(player, bank, squares)
     #roll the dice
     dice = Dice.new
-    puts "#{player.name}, please press enter to roll the dice."
-    gets
     roll = dice.roll(2)
-    puts "#{player.name} is rolling the dice..."
     #grammar
     if roll == 8 || roll == 11
       puts "#{player.name} rolled an #{roll.to_s}."

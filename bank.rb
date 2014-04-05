@@ -60,7 +60,7 @@ class Bank
       puts "Which ones?"
       response = gets.chomp
       while response.upcase != 'NO' || response.upcase != 'NONE' || resonse.upcase != 'N' || response.upcase != 'NO MORE' || response.upcase != 'CANCEL'
-        log = `echo #{response} << /.response_log`
+        log = `echo #{response} >> .response_log`
         if response.upcase == 'ALL' || response.upcase == 'ALL OF THEM'
           properties.each do |square|
             square.ismortgaged = true
@@ -69,7 +69,7 @@ class Bank
           end
         else
           properties.each do |square|
-            if response.upcase == square.name.upcase || response.upcase == square.name.upcase.split(' ')
+            if response.upcase == square.name.upcase || response.upcase == square.name.upcase.split(' ')[0] #wont work for threewor names
               square.ismortgaged = true
               player.cash += square.mortgage
             else

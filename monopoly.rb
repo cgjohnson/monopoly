@@ -14,6 +14,9 @@ class Monopoly
     squareindustry.build
     playerindustry = PlayerIndustry.new
     playerindustry.build(squareindustry.manifest)
+    puts 'At the beginning of each turn you have these options:'
+    puts "roll the dice\npropose trade\nmortgage\nbuy/sell houses\nquit\nsave"
+    puts 'Let the games begin!!!'
     TurnRegulator.turn(playerindustry.manifest, squareindustry.manifest)
   end
 end

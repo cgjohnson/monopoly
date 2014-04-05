@@ -87,9 +87,3 @@ class Bank
   end
 end
 
-
-class Response
-  def namecheck
-
-  end
-end

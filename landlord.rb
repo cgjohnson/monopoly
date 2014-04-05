@@ -32,7 +32,6 @@ class LandLord
       end
     end
     if owned.length > 0
-      puts "this is owned.length: #{owned.length}"
       bank.mortgage(player, owned)
     end
 =begin

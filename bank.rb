@@ -21,6 +21,7 @@ class Bank
           rent *=2
         end
         puts "It appears you owe $#{rent} in rent!"
+        #if cash < 0, bank.bankruptcy(player) - allows you to mortgage / sell houses / sell properties to avoid bankruptcy
         player.cash -= rent
         landlord.cash += rent
         puts "I'm afraid #{player.name}, you now only has $#{player.cash} in cash..."

@@ -59,22 +59,31 @@ class Bank
     if mortgage
       puts "Which ones?"
       response = gets.chomp
-      while response.upcase != 'NO' || response.upcase != 'NONE' || resonse.upcase != 'N' || response.upcase != 'NO MORE' || response.upcase != 'CANCEL'
+      localtruth = true
+      while localtruth
         log = `echo #{response} >> .response_log`
         if response.upcase == 'ALL' || response.upcase == 'ALL OF THEM'
           properties.each do |square|
             square.ismortgaged = true
             player.cash += square.mortgage
-            response = 'no more'
+            puts "You've mortgaged all of your properties."
+            puts "#{player.name}, you now have $#{player.cash} in cash!"
+            localtruth = false
           end
         else
           properties.each do |square|
-            if response.upcase == square.name.upcase || response.upcase == square.name.upcase.split(' ')[0] #wont work for threewor names
+            if response.upcase == square.name.upcase
               square.ismortgaged = true
               player.cash += square.mortgage
+              puts "You have mortgaged #{square.name}."
+              puts "#{player.name}, you now have $#{player.cash} in cash!"
+              localtruth = false
+            elsif response.upcase == 'N' || response.upcase == 'NO' || response.upcase == 'NOPE' || response.upcase == 'CANCEL'
+              puts 'No? How disappointing...'
+              localtruth = false
             else
               puts "Excuse me, #{player.name}, I'm afraid I don't understand."
-              puts "Some acceptable responses are:\nall\nnone\nsquare name"
+              puts "Some acceptable responses are:\nall\nsquare name\ncancel"
               response = gets.chomp
             end
           end
